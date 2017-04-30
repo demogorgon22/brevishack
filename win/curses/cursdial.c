@@ -364,22 +364,29 @@ int curses_character_input_dialog(const char *prompt, const char *choices, CHAR_
 int curses_ext_cmd()
 {
     int count, letter, prompt_width, startx, starty, winx, winy;
-    int messageh, messagew;
+    int messageh, messagew, maxlen = BUFSZ - 1;
     int ret = -1;
     char cur_choice[BUFSZ];
     int matches = 0;
-    WINDOW *extwin = NULL;
+    WINDOW *extwin = NULL, *extwin2 = NULL;
 
     if (iflags.extmenu)
     {
         return extcmd_via_menu();
     }
     
+    startx = 0;
+    starty = 0;
     if (iflags.wc_popup_dialog) /* Prompt in popup window */
     {
-        startx = 1;
-        starty = 1;
-        extwin = curses_create_window(25, 1, UP);
+        int x0, y0, w, h; /* bounding coords of popup */
+        extwin2 = curses_create_window(25, 1, UP);
+        wrefresh(extwin2);
+        /* create window inside window to prevent overwriting of border */
+        getbegyx(extwin2,y0,x0);
+        getmaxyx(extwin2,h,w);
+        extwin = newwin(1, w-2, y0+1, x0+1);
+        if (w - 4 < maxlen) maxlen = w - 4;
     }
     else
     {
@@ -393,9 +400,8 @@ int curses_ext_cmd()
         }
         
         winy += messageh - 1;
-        extwin = newwin(1, 25, winy, winx);
-        startx = 0;
-        starty = 0;
+        extwin = newwin(1, messagew-2, winy, winx);
+        if (messagew - 4 < maxlen) maxlen = messagew - 4;
         pline("#");
     }
 
@@ -406,17 +412,20 @@ int curses_ext_cmd()
         wmove(extwin, starty, startx);
         waddstr(extwin, "# ");
         wmove(extwin, starty, startx + 2);
-        curses_toggle_color_attr(extwin, NONE, A_UNDERLINE, ON);
         waddstr(extwin, cur_choice);
-        curses_toggle_color_attr(extwin, NONE, A_UNDERLINE, OFF);
         wmove(extwin, starty, strlen(cur_choice) + startx + 2);
-        wprintw(extwin, "          ", cur_choice);
+        wprintw(extwin, "             ");
 
+        /* if we have an autocomplete command, AND it matches uniquely */
         if (matches == 1)
         {
+            curses_toggle_color_attr(extwin, NONE, A_UNDERLINE, ON);
             wmove(extwin, starty, strlen(cur_choice) + startx + 2);
-            wprintw(extwin, "%s          ", extcmdlist[ret].ef_txt
+            wprintw(extwin, "%s", extcmdlist[ret].ef_txt
              + strlen(cur_choice));
+            curses_toggle_color_attr(extwin, NONE, A_UNDERLINE, OFF);
+            mvwprintw(extwin, starty,
+                      strlen(extcmdlist[ret].ef_txt) + 2, "          ");
         }
 
         wrefresh(extwin);
@@ -432,6 +441,14 @@ int curses_ext_cmd()
 
         if ((letter == '\r') || (letter == '\n'))
         {
+            if (ret == -1) {
+               for (count = 0; extcmdlist[count].ef_txt; count++) {
+                   if (!strcasecmp(cur_choice, extcmdlist[count].ef_txt)) {
+                       ret = count;
+                       break;
+                   }
+               }
+            }
             break;
         }
 
@@ -450,9 +467,14 @@ int curses_ext_cmd()
             }
         }
         
+        if (letter != '*' && prompt_width < maxlen) {
+            cur_choice[prompt_width] = letter;
+            cur_choice[prompt_width + 1] = '\0';
+            ret = -1;
+        }
         for (count = 0; extcmdlist[count].ef_txt; count++)
         {
-	  if (!extcmdlist[count].autocomplete) continue;
+            if (!extcmdlist[count].autocomplete) continue;
             if (strlen(extcmdlist[count].ef_txt) > prompt_width)
             {
                 if (strncasecmp(cur_choice, extcmdlist[count].ef_txt,
@@ -461,21 +483,20 @@ int curses_ext_cmd()
                     if ((extcmdlist[count].ef_txt[prompt_width] ==
 			 lowc(letter)) || letter == '*')
                     {
-                        if ((matches == 0) && (letter != '*'))
+                        if (matches == 0)
                         {
                             ret = count;
-                            cur_choice[prompt_width] = letter;
-                            cur_choice[prompt_width + 1] = '\0';
                         }
 
                         matches++;
                     }
                 }
             }
-	    }
-	}    
-    
+        }
+    }
+
     curses_destroy_win(extwin);
+    if (extwin2) curses_destroy_win(extwin2);
     return ret;
 }
 
