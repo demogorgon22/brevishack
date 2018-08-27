@@ -535,8 +535,14 @@ const char *build_date;
     Strcat(subbuf, " Beta");
 #endif
 
-    Sprintf(outbuf, "%s NetHack%s Version %s - last build %s.",
-	    PORT_ID, subbuf, version_string(versbuf), build_date);
+    if (getenv("VCS_DESCRIPTION"))
+        Sprintf(outbuf, "%s NetHack%s Version %s (%s) - last build %s.",
+	        PORT_ID, subbuf, version_string(versbuf),
+                getenv("VCS_DESCRIPTION"), build_date);
+    else
+        Sprintf(outbuf, "%s NetHack%s Version %s - last build %s.",
+                PORT_ID, subbuf, version_string(versbuf), build_date);
+
     return outbuf;
 }
 
@@ -636,6 +642,9 @@ static const char *build_opts[] = {
 #endif
 #ifdef AUTOPICKUP_EXCEPTIONS
 		"autopickup_exceptions",
+#endif
+#ifdef AUTO_OPEN
+		"auto open doors",
 #endif
 #ifdef TEXTCOLOR
 		"color",

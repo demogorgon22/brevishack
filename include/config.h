@@ -214,7 +214,7 @@
  * otherwise it will be the current directory.
  */
 # ifndef HACKDIR
-#  define HACKDIR "/nh343"
+#  define HACKDIR "/nh343-hdf"
 # endif
 
 /*
@@ -453,6 +453,8 @@ typedef long glyph_t;
 #define USER_DUNGEONCOLOR
 
 #define BONES_POOL /* Multiple bones files per level */
+
+#define AUTO_OPEN	/* open doors by walking into them - Stefano Busti */
 
 /* End of Section 5 */
 

@@ -60,6 +60,9 @@ static struct Bool_Opt
 	{"asksavedisk", (boolean *)0, FALSE, SET_IN_FILE},
 #endif
 	{"autodig", &flags.autodig, FALSE, SET_IN_GAME},
+#ifdef AUTO_OPEN
+	{"autoopen", &iflags.autoopen, TRUE, SET_IN_GAME},
+#endif /* AUTO_OPEN */
 	{"autopickup", &flags.pickup, TRUE, SET_IN_GAME},
 	{"apexception_regex", &iflags.ape_regex, FALSE,  SET_IN_FILE},
 	{"autoquiver", &flags.autoquiver, FALSE, SET_IN_GAME},
