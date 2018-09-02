@@ -657,12 +657,18 @@ gcrownu()
     case A_LAWFUL:
 	u.uevent.uhand_of_elbereth = 1;
 	verbalize("I crown thee...  The Hand of Elbereth!");
+        #ifdef LIVELOG
+                livelog_printf("was crowned \"The Hand of Elbereth\" by %s", u_gname());
+        #endif
 	break;
     case A_NEUTRAL:
 	u.uevent.uhand_of_elbereth = 2;
 	in_hand = (uwep && uwep->oartifact == ART_VORPAL_BLADE);
 	already_exists = exist_artifact(LONG_SWORD, artiname(ART_VORPAL_BLADE));
 	verbalize("Thou shalt be my Envoy of Balance!");
+        #ifdef LIVELOG
+                livelog_printf("became %s Envoy of Balance", s_suffix(u_gname()));
+        #endif
 	break;
     case A_CHAOTIC:
 	u.uevent.uhand_of_elbereth = 3;
@@ -670,6 +676,11 @@ gcrownu()
 	already_exists = exist_artifact(RUNESWORD, artiname(ART_STORMBRINGER));
 	verbalize("Thou art chosen to %s for My Glory!",
 		  already_exists && !in_hand ? "take lives" : "steal souls");
+        #ifdef LIVELOG
+                livelog_printf("was chosen to %s for the Glory of %s",
+                  already_exists && !in_hand ? "take lives" : "steal souls",
+                  u_gname());
+        #endif
 	break;
     }
 
@@ -1152,7 +1163,11 @@ dosacrifice()
 	extern const int monstr[];
 
 	/* KMH, conduct */
-	u.uconduct.gnostic++;
+	if(!u.uconduct.gnostic++)
+        #ifdef LIVELOG
+                livelog_conduct("rejected atheism by offering %s on an altar of %s", xname(otmp), a_gname())
+        #endif
+		;
 
 	/* you're handling this corpse, even if it was killed upon the altar */
 	feel_cockatrice(otmp, TRUE);
@@ -1484,6 +1499,10 @@ verbalize("In return for thy service, I grant thee the gift of Immortality!");
 		    u.ugifts++;
 		    u.ublesscnt = rnz(300 + (50 * nartifacts));
 		    exercise(A_WIS, TRUE);
+                    #ifdef LIVELOG
+                        livelog_printf("had %s bestowed upon %s by %s", xname(otmp), uhim(), u_gname())
+                    #endif
+                        ;
 		    /* make sure we can use this weapon */
 		    unrestrict_weapon_skill(weapon_type(otmp));
 		    discover_artifact(otmp->oartifact);
@@ -1563,7 +1582,11 @@ dopray()
 	if (yn("Are you sure you want to pray?") == 'n')
 	    return 0;
 
-    u.uconduct.gnostic++;
+    if(!u.uconduct.gnostic++)
+    #ifdef LIVELOG
+                livelog_conduct("rejected atheism with a prayer")
+    #endif
+                ;
     /* Praying implies that the hero is conscious and since we have
        no deafness attribute this implies that all verbalized messages
        can be heard.  So, in case the player has used the 'O' command
@@ -1674,7 +1697,10 @@ doturn()
 		You("don't know how to turn undead!");
 		return(0);
 	}
-	u.uconduct.gnostic++;
+        #ifdef LIVELOG
+                livelog_conduct("rejected atheism by turning undead")
+        #endif
+                ;
 
 	if ((u.ualign.type != A_CHAOTIC &&
 		    (is_demon(youmonst.data) || is_undead(youmonst.data))) ||

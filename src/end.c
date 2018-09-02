@@ -833,7 +833,9 @@ int how;
 		else {
 			killer = 0;
 			killer_format = 0;
+#ifdef LIVELOG
 			livelog_write_string("averted death");
+#endif
 			return;
 		}
 	}

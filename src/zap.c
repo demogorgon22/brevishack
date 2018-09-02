@@ -4098,7 +4098,9 @@ void
 makewish()
 {
 	char buf[BUFSZ];
-	char bufcpy[BUFSZ];
+#ifdef LIVELOG
+        char origbuf[BUFSZ];
+#endif
 	struct obj *otmp, nothing;
 	int tries = 0;
 
@@ -4107,6 +4109,9 @@ makewish()
 retry:
 	getlin("For what do you wish?", buf);
 	if(buf[0] == '\033') buf[0] = 0;
+#ifdef LIVELOG
+        strcpy(origbuf, buf);
+#endif
 	/*
 	 *  Note: if they wished for and got a non-object successfully,
 	 *  otmp == &zeroobj.  That includes gold, or an artifact that
@@ -4132,12 +4137,11 @@ retry:
 
 	if (otmp != &zeroobj) {
 
-	    if (!flags.debug) {
-		char llog[BUFSZ+20];
-		Sprintf(llog, "wished for \"%s\"", mungspaces(bufcpy));
-		livelog_write_string(llog);
-	    }
-
+#ifdef LIVELOG
+            char llog[BUFSZ+20];
+            Sprintf(llog, "wished for \"%s\"", mungspaces(origbuf));
+            livelog_write_string(llog);
+#endif
 	    /* The(aobjnam()) is safe since otmp is unidentified -dlc */
 	    (void) hold_another_object(otmp, u.uswallow ?
 				       "Oops!  %s out of your reach!" :

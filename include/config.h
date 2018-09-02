@@ -424,7 +424,11 @@ typedef long glyph_t;
 */
 #define SERVER_ADMIN_MSG "admin_msg"
 
+#define LIVELOG         /* live logging of player actions */
 #define LIVELOGFILE "livelog"
+
+/* no earlygame livelog spam for broken  conducts */
+#define LL_CONDUCT_THRESHOLD 3000 /* min turncount */
 
 #define XLOGFILE "xlogfile"  /* even larger logfile */
 /* #define REALTIME_ON_BOTL */  /* Show elapsed time on bottom line.  Note:
