@@ -1697,6 +1697,7 @@ doturn()
 		You("don't know how to turn undead!");
 		return(0);
 	}
+        if(!u.uconduct.gnostic++)
         #ifdef LIVELOG
                 livelog_conduct("rejected atheism by turning undead")
         #endif
