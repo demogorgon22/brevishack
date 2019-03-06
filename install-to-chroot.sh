@@ -8,13 +8,13 @@
 
 # autonamed chroot directory. Can rename.
 DATESTAMP=`date +%Y%m%d-%H%M%S`
-NAO_CHROOT="/opt/nethack/hardfought.org"
+NAO_CHROOT="/opt/nethack/chroot"
 # already compiled versions of dgl and nethack
-NETHACK_GIT="/home/build/NetHack-343-nao"
+NETHACK_GIT="/home/build/NetHack"
 # the user & group from dgamelaunch config file.
 USRGRP="games:games"
 # fixed data to copy (leave blank to skip)
-NH_GIT="/home/build/NetHack-343-nao"
+NH_GIT="/home/build/NetHack"
 # HACKDIR from include/config.h; aka nethack subdir inside chroot
 # Make a new one each time save compat is broken
 #NHSUBDIR="nh343_new"

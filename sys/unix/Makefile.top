@@ -16,7 +16,7 @@ export VCS_DESCRIPTION = git $(shell git rev-parse --short HEAD)
 # MAKE = make
 
 # make NetHack
-PREFIX	 = /opt/nethack/hardfought.org
+PREFIX	 = /opt/nethack/chroot
 GAME     = nethack
 # GAME     = nethack.prg
 GAMEUID  = games
