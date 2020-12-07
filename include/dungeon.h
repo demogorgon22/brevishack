@@ -108,6 +108,7 @@ typedef struct branch {
 #define Is_oracle_level(x)	(on_level(x, &oracle_level))
 #define Is_valley(x)		(on_level(x, &valley_level))
 #define Is_demons2_level(x)	(on_level(x, &demons2_level))
+#define Is_vibe_level(x)	(on_level(x, &demons2_level))
 #define Is_juiblex_level(x)	(on_level(x, &demons2_level) && dungeon_topology.demons2_variant == JUIBLEX_VARIANT)
 #define Is_orcus_level(x)	(on_level(x, &demons2_level) && dungeon_topology.demons2_variant == ORCUS_VARIANT)
 #define Is_wiz1_level(x)	(on_level(x, &wiz1_level))
