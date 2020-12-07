@@ -67,10 +67,7 @@ E struct dgn_topology {		/* special dungeon levels for speed */
     d_level	d_asmodeus_level;	/* unused */
     d_level	d_portal_level;		/* only in goto_level() [do.c] */
     d_level	d_sanctum_level;
-    d_level	d_earth_level;
-    d_level	d_water_level;
-    d_level	d_fire_level;
-    d_level	d_air_level;
+    d_level	d_planes_level;
     d_level	d_astral_level;
     xchar	d_tower_dnum;
     xchar	d_mines_dnum, d_quest_dnum;
@@ -79,6 +76,11 @@ E struct dgn_topology {		/* special dungeon levels for speed */
 #ifdef RECORD_ACHIEVE
     d_level     d_mineend_level;
 #endif
+    int planes_variant;
+#define EARTH_PLANE 1
+#define AIR_PLANE 2
+#define FIRE_PLANE 3
+#define WATER_PLANE 4
 } dungeon_topology;
 /* macros for accesing the dungeon levels by their old names */
 #define oracle_level		(dungeon_topology.d_oracle_level)
@@ -98,10 +100,7 @@ E struct dgn_topology {		/* special dungeon levels for speed */
 #define asmodeus_level		(dungeon_topology.d_asmodeus_level)
 #define portal_level		(dungeon_topology.d_portal_level)
 #define sanctum_level		(dungeon_topology.d_sanctum_level)
-#define earth_level		(dungeon_topology.d_earth_level)
-#define water_level		(dungeon_topology.d_water_level)
-#define fire_level		(dungeon_topology.d_fire_level)
-#define air_level		(dungeon_topology.d_air_level)
+#define planes_level		(dungeon_topology.d_planes_level)
 #define astral_level		(dungeon_topology.d_astral_level)
 #define tower_dnum		(dungeon_topology.d_tower_dnum)
 #define mines_dnum		(dungeon_topology.d_mines_dnum)
