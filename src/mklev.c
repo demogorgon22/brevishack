@@ -644,11 +644,11 @@ makelevel()
 			   (u.uz.dlevel < loc_lev->dlevel.dlevel) ? "a" : "b");
 		    makemaz(fillname);
 		    return;
-	    } else if(In_hell(&u.uz) ||
+	    /*} else if(In_hell(&u.uz) ||
 		  (rn2(5) && u.uz.dnum == medusa_level.dnum
 			  && depth(&u.uz) > depth(&medusa_level))) {
 		    makemaz("");
-		    return;
+		    return;*/
 	    }
 	}
 
@@ -706,7 +706,6 @@ makelevel()
 			level.flags.has_vault = 1;
 			++room_threshold;
 			fill_room(&rooms[nroom - 1], FALSE);
-			mk_knox_portal(vault_x+w, vault_y+h);
 			if(!level.flags.noteleport && !rn2(3)) makevtele();
 		} else if(rnd_rect() && create_vault()) {
 			vault_x = rooms[nroom].lx;
