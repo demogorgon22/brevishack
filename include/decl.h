@@ -61,10 +61,8 @@ E struct dgn_topology {		/* special dungeon levels for speed */
     d_level	d_wiz1_level;
     d_level	d_wiz2_level;
     d_level	d_wiz3_level;
-    d_level	d_juiblex_level;
-    d_level	d_orcus_level;
-    d_level	d_baalzebub_level;	/* unused */
-    d_level	d_asmodeus_level;	/* unused */
+    d_level	d_demons1_level;
+    d_level	d_demons2_level;
     d_level	d_portal_level;		/* only in goto_level() [do.c] */
     d_level	d_sanctum_level;
     d_level	d_planes_level;
@@ -81,6 +79,9 @@ E struct dgn_topology {		/* special dungeon levels for speed */
 #define AIR_PLANE 2
 #define FIRE_PLANE 3
 #define WATER_PLANE 4
+    int demons2_variant;
+#define JUIBLEX_VARIANT 1
+#define ORCUS_VARIANT 2
 } dungeon_topology;
 /* macros for accesing the dungeon levels by their old names */
 #define oracle_level		(dungeon_topology.d_oracle_level)
@@ -94,10 +95,8 @@ E struct dgn_topology {		/* special dungeon levels for speed */
 #define wiz1_level		(dungeon_topology.d_wiz1_level)
 #define wiz2_level		(dungeon_topology.d_wiz2_level)
 #define wiz3_level		(dungeon_topology.d_wiz3_level)
-#define juiblex_level		(dungeon_topology.d_juiblex_level)
-#define orcus_level		(dungeon_topology.d_orcus_level)
-#define baalzebub_level		(dungeon_topology.d_baalzebub_level)
-#define asmodeus_level		(dungeon_topology.d_asmodeus_level)
+#define demons1_level		(dungeon_topology.d_demons1_level)
+#define demons2_level		(dungeon_topology.d_demons2_level)
 #define portal_level		(dungeon_topology.d_portal_level)
 #define sanctum_level		(dungeon_topology.d_sanctum_level)
 #define planes_level		(dungeon_topology.d_planes_level)
