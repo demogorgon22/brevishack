@@ -9,7 +9,7 @@
 # Players are supposed to sacrifice the Amulet of Yendor on the appropriate
 # shrine.
 
-MAZE:"earth",' '
+MAZE:"planes-1",' '
 FLAGS: noteleport,hardfloor,shortsighted
 MESSAGE: "Well done, mortal!"
 MESSAGE: "But now thou must face the final Test..."
@@ -45,7 +45,7 @@ MAP
 ENDMAP
 #  Since there are no stairs, this forces the hero's initial placement
 TELEPORT_REGION:(69,16,69,16),(0,0,0,0)
-PORTAL:(0,0,75,19),(65,13,75,19),"air"
+PORTAL:(0,0,75,19),(65,13,75,19),"astral"
 #  Some helpful monsters.  Making sure a
 #  pick axe and at least one wand of digging
 #  are available.
@@ -124,7 +124,7 @@ MONSTER:'E',"earth elemental",(04,18),hostile
 OBJECT:'`',"boulder",random
 
 
-MAZE:"air",' '
+MAZE:"planes-2",' '
 FLAGS: noteleport,hardfloor,shortsighted
 # The following messages are somewhat obtuse, to make then
 # equally meaningful if the player can see or not.
@@ -164,7 +164,7 @@ ENDMAP
 # the preceding level; the exit portal is placed inside the down region.
 TELEPORT_REGION:levregion(01,00,24,20),levregion(25,00,79,20),up
 TELEPORT_REGION:levregion(56,00,79,20),levregion(01,00,55,20),down
-PORTAL:levregion(57,01,78,19),(0,0,0,0),"fire"
+PORTAL:levregion(57,01,78,19),(0,0,0,0),"astral"
 REGION:(00,00,75,19),lit,"ordinary"
 MONSTER:'E',"air elemental",random,hostile
 MONSTER:'E',"air elemental",random,hostile
@@ -225,7 +225,7 @@ MONSTER:'v',"steam vortex",random,hostile
 MONSTER:'v',"steam vortex",random,hostile
 
 
-MAZE:"fire",' '
+MAZE:"planes-3",' '
 FLAGS: noteleport,hardfloor,shortsighted
 GEOMETRY:center,center
 # The player lands, upon arrival, in the
@@ -256,7 +256,7 @@ MAP
 .................................LL....................LL...................
 ENDMAP
 TELEPORT_REGION:(69,16,69,16),(0,0,0,0)
-PORTAL:(0,0,75,19),(65,13,75,19),"water"
+PORTAL:(0,0,75,19),(65,13,75,19),"astral"
 
 TRAP:"fire",random
 TRAP:"fire",random
@@ -376,7 +376,7 @@ OBJECT:'`',"boulder",random
 OBJECT:'`',"boulder",random
 
 
-MAZE:"water",' '
+MAZE:"planes-4",' '
 FLAGS: noteleport,hardfloor,shortsighted
 MESSAGE: "You find yourself suspended in an air bubble surrounded by water."
 GEOMETRY:center,center

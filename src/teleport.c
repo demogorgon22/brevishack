@@ -627,7 +627,7 @@ level_tele()
 						Strcat(buf, " with the amulet");
 					}
 				}
-				assign_level(&newlevel, &earth_level);
+				assign_level(&newlevel, &planes_level);
 				pline("%s.", buf);
 			}
 			force_dest = TRUE;

@@ -500,25 +500,34 @@ register const char *s;
 	char protofile[20];
 	s_level	*sp = Is_special(&u.uz);
 	coord mm;
+	int levvar = 0;
 
 	if(*s) {
-	    if(sp && sp->rndlevs) Sprintf(protofile, "%s-%d", s,
-						rnd((int) sp->rndlevs));
-	    else		 Strcpy(protofile, s);
-	} else if(*(dungeons[u.uz.dnum].proto)) {
-	    if(dunlevs_in_dungeon(&u.uz) > 1) {
-		if(sp && sp->rndlevs)
-		     Sprintf(protofile, "%s%d-%d", dungeons[u.uz.dnum].proto,
-						dunlev(&u.uz),
-						rnd((int) sp->rndlevs));
-		else Sprintf(protofile, "%s%d", dungeons[u.uz.dnum].proto,
-						dunlev(&u.uz));
-	    } else if(sp && sp->rndlevs) {
-		     Sprintf(protofile, "%s-%d", dungeons[u.uz.dnum].proto,
-						rnd((int) sp->rndlevs));
-	    } else Strcpy(protofile, dungeons[u.uz.dnum].proto);
+            if(sp && sp->rndlevs){
+                        levvar = rnd((int) sp->rndlevs);
+                        Sprintf(protofile, "%s-%d", s, levvar);
+                }
+            else Strcpy(protofile, s);
+        } else if(*(dungeons[u.uz.dnum].proto)) {
+            if(dunlevs_in_dungeon(&u.uz) > 1) {
+                        if(sp && sp->rndlevs){
+                                levvar = rnd((int) sp->rndlevs);
+                                Sprintf(protofile, "%s%d-%d", dungeons[u.uz.dnum].proto,
+                                                 dunlev(&u.uz),
+                                                 levvar);
+                        }else Sprintf(protofile, "%s%d", dungeons[u.uz.dnum].proto,
+                                                        dunlev(&u.uz));
+            } else if(sp && sp->rndlevs) {
+                        levvar = rnd((int) sp->rndlevs);
+                    Sprintf(protofile, "%s-%d", dungeons[u.uz.dnum].proto,
+                                                levvar);
+            } else Strcpy(protofile, dungeons[u.uz.dnum].proto);
 
-	} else Strcpy(protofile, "");
+        } else Strcpy(protofile, "");
+	
+	if(Is_planeslevel(&u.uz)){
+		dungeon_topology.planes_variant = levvar;
+	}
 
 #ifdef WIZARD
 	/* SPLEVTYPE format is "level-choice,level-choice"... */

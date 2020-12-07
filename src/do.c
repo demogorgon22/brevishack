@@ -980,7 +980,7 @@ boolean at_stairs, falling, portal;
 #ifdef LIVELOG
 		livelog_write_string("entered the Planes");
 #endif
-		assign_level(newlevel, &earth_level);
+		assign_level(newlevel, &planes_level);
 	    } else return;
 	}
 	new_ledger = ledger_no(newlevel);

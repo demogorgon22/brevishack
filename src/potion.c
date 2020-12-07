@@ -761,7 +761,7 @@ peffects(otmp)
 			    const char *riseup ="rise up, through the %s!";
 			    if(ledger_no(&u.uz) == 1) {
 			        You(riseup, ceiling(u.ux,u.uy));
-				goto_level(&earth_level, FALSE, FALSE, FALSE);
+				goto_level(&planes_level, FALSE, FALSE, FALSE);
 			    } else {
 			        register int newlev = depth(&u.uz)-1;
 				d_level newlevel;
