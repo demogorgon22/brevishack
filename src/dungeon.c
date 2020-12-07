@@ -609,17 +609,15 @@ struct level_map {
 	const char *lev_name;
 	d_level *lev_spec;
 } level_map[] = {
-	{ "asmodeus",	&asmodeus_level },
 	{ "astral",	&astral_level },
-	{ "baalz",	&baalzebub_level },
 	{ "bigroom",	&bigroom_level },
 	{ "castle",	&stronghold_level },
+	{ "dmons1",	&demons1_level },
+	{ "dmons2",	&demons2_level },
 	{ "fakewiz1",	&portal_level },
-	{ "juiblex",	&juiblex_level },
 	{ "knox",	&knox_level },
 	{ "medusa",	&medusa_level },
 	{ "oracle",	&oracle_level },
-	{ "orcus",	&orcus_level },
 	{ "planes",	&planes_level },
 #ifdef REINCARNATION
 	{ "rogue",	&rogue_level },

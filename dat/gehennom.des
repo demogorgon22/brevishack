@@ -152,10 +152,11 @@ MONSTER:'M',random,random
 MONSTER:'M',random,random
 MONSTER:'M',random,random
 MONSTER:'M',random,random
+
 #
 # The Juiblex level
 #
-MAZE:"juiblex",' '
+MAZE:"dmons2-1",' '
 FLAGS:noteleport,shortsighted
 INIT_MAP:'.','}',true,true,unlit,false
 # guarantee at least one open spot to ensure successful stair placement
@@ -206,7 +207,7 @@ RANDOM_PLACES:(04,02),(46,02),(04,15),(46,15)
 REGION:(00,00,50,17),unlit,"swamp"
 MAZEWALK:(00,09),west
 MAZEWALK:(50,08),east
-STAIR:levregion(01,00,11,20),(0,0,50,17),down
+#STAIR:levregion(01,00,11,20),(0,0,50,17),down
 STAIR:levregion(69,00,79,20),(0,0,50,17),up
 BRANCH:levregion(01,00,11,20),(0,0,50,17)
 TELEPORT_REGION:levregion(01,00,11,20),(0,0,50,17),up
@@ -272,7 +273,7 @@ TRAP:"magic",random
 #
 # The Orcus Level
 #
-MAZE:"orcus",random
+MAZE:"dmons2-2",random
 FLAGS: noteleport,shortsighted
 GEOMETRY:right,center
 # A ghost town
@@ -298,7 +299,7 @@ ENDMAP
 MAZEWALK:(00,06),west
 # Entire main area
 REGION:(01,00,44,16),unlit,"ordinary"
-STAIR:(33,15),down
+#STAIR:(33,15),down
 STAIR:levregion(01,00,12,20),levregion(20,01,70,20),up
 BRANCH:levregion(01,00,12,20),levregion(20,01,70,20)
 TELEPORT_REGION:levregion(01,00,12,20),levregion(20,01,70,20)
@@ -412,7 +413,7 @@ MONSTER:random,random,random
 #
 # The Asmodeus Level
 #
-MAZE:"asmodeus",random
+MAZE:"dmons1-1",random
 FLAGS: noteleport
 # First part
 GEOMETRY:half-left,center
@@ -496,7 +497,7 @@ TRAP:"magic", random
 #
 # The Baalzebub level
 #
-MAZE:"baalz",random
+MAZE:"dmons1-2",random
 FLAGS: noteleport
 GEOMETRY:right,center
 MAP

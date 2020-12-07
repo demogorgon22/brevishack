@@ -49,8 +49,8 @@ ALIGNMENT:	noalign
 BRANCH:		"Vlad's Tower" @ (2, 0) up
 LEVEL:		"valley" "V" @ (1, 0)
 LEVEL:		"sanctum" "none" @ (-1, 0)
-LEVEL:		"juiblex" "J" @ (2, 0)
-LEVEL:		"baalz" "B" @ (3, 0)
+RNDLEVEL:	"dmons1" "B" @ (2, 0) 2
+RNDLEVEL:	"dmons2" "J" @ (3, 0) 2
 
 #
 #	The Mines of the Gnomes of Zurich.

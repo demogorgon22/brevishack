@@ -465,7 +465,7 @@ fixup_special()
 	croom = search_special(TEMPLE);
 
 	create_secret_door(croom, W_ANY);
-    } else if(on_level(&u.uz, &orcus_level)) {
+    } else if(Is_orcus_level(&u.uz)) {
 	   register struct monst *mtmp, *mtmp2;
 
 	   /* it's a ghost town, get rid of shopkeepers */
@@ -527,6 +527,8 @@ register const char *s;
 	
 	if(Is_planeslevel(&u.uz)){
 		dungeon_topology.planes_variant = levvar;
+	} else if(Is_demons2_level(&u.uz)){
+		dungeon_topology.demons2_variant = levvar;
 	}
 
 #ifdef WIZARD
