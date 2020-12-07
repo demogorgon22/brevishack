@@ -634,7 +634,6 @@ struct level_map {
 	{ "wizard3",	&wiz3_level },
 #ifdef RECORD_ACHIEVE
         { "minend",     &mineend_level },
-        { "soko1",      &sokoend_level },
 #endif
 	{ X_START,	&qstart_level },
 	{ X_LOCATE,	&qlocate_level },
@@ -881,7 +880,6 @@ init_dungeons()		/* initialize the "dungeon" structs */
  *	I hate hardwiring these names. :-(
  */
 	quest_dnum = dname_to_dnum("The Quest");
-	sokoban_dnum = dname_to_dnum("Sokoban");
 	mines_dnum = dname_to_dnum("The Gnomish Mines");
 	tower_dnum = dname_to_dnum("Vlad's Tower");
 

@@ -123,10 +123,10 @@ typedef struct branch {
 #define Is_knox(x)		(on_level(x, &knox_level))
 #ifdef RECORD_ACHIEVE
 #define Is_mineend_level(x)     (on_level(x, &mineend_level))
-#define Is_sokoend_level(x)     (on_level(x, &sokoend_level))
+#define Is_sokoend_level(x)     (FALSE)
 #endif
 
-#define In_sokoban(x)		((x)->dnum == sokoban_dnum)
+#define In_sokoban(x)		(FALSE)
 #define In_tower(x)		((x)->dnum == tower_dnum)
 #define Inhell			In_hell(&u.uz)	/* now gehennom */
 #define In_endgame(x)		((x)->dnum == astral_level.dnum)

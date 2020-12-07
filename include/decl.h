@@ -73,13 +73,11 @@ E struct dgn_topology {		/* special dungeon levels for speed */
     d_level	d_air_level;
     d_level	d_astral_level;
     xchar	d_tower_dnum;
-    xchar	d_sokoban_dnum;
     xchar	d_mines_dnum, d_quest_dnum;
     d_level	d_qstart_level, d_qlocate_level, d_nemesis_level;
     d_level	d_knox_level;
 #ifdef RECORD_ACHIEVE
     d_level     d_mineend_level;
-    d_level     d_sokoend_level;
 #endif
 } dungeon_topology;
 /* macros for accesing the dungeon levels by their old names */
@@ -106,7 +104,6 @@ E struct dgn_topology {		/* special dungeon levels for speed */
 #define air_level		(dungeon_topology.d_air_level)
 #define astral_level		(dungeon_topology.d_astral_level)
 #define tower_dnum		(dungeon_topology.d_tower_dnum)
-#define sokoban_dnum		(dungeon_topology.d_sokoban_dnum)
 #define mines_dnum		(dungeon_topology.d_mines_dnum)
 #define quest_dnum		(dungeon_topology.d_quest_dnum)
 #define qstart_level		(dungeon_topology.d_qstart_level)
@@ -115,7 +112,6 @@ E struct dgn_topology {		/* special dungeon levels for speed */
 #define knox_level		(dungeon_topology.d_knox_level)
 #ifdef RECORD_ACHIEVE
 #define mineend_level           (dungeon_topology.d_mineend_level)
-#define sokoend_level           (dungeon_topology.d_sokoend_level)
 #endif
 
 E NEARDATA stairway dnstair, upstair;		/* stairs up and down */

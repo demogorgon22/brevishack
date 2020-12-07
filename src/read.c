@@ -652,10 +652,7 @@ forget_levels(percent)
 	for (count = 0, i = 0; i <= maxl; i++)
 	    if ((level_info[i].flags & VISITED) &&
 			!(level_info[i].flags & FORGOTTEN) && i != this_lev) {
-		if (ledger_to_dnum(i) == sokoban_dnum)
-		    percent += 2;
-		else
-		    indices[count++] = i;
+		   indices[count++] = i;
 	    }
 	
 	if (percent > 100) percent = 100;
