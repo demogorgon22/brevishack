@@ -78,7 +78,7 @@ SPEC_LEVS = asmodeus.lev baalz.lev bigrm-?.lev castle.lev fakewiz?.lev \
 	minetn-?.lev oracle.lev orcus.lev sanctum.lev soko?-?.lev \
 	tower?.lev valley.lev wizard?.lev \
 	astral.lev planes-?.lev
-QUEST_LEVS = ???-goal.lev ???-fil?.lev ???-loca.lev ???-strt.lev
+QUEST_LEVS = ???-goal.lev
 
 DATNODLB = $(VARDATND) license
 DATDLB = $(DATHELP) dungeon $(SPEC_LEVS) $(QUEST_LEVS) $(VARDATD)
