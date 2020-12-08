@@ -29,3 +29,5 @@ Brevishack is an attempt at boiling the NetHack gameplay down to an approximatel
 - Objects generate in rooms with a much greater chance
 - Holes and trapdoors can only drop the player a single level
 - XP curve changed to custom and much lower requirements
+- Disable amnesia
+- Disable mysterious force
