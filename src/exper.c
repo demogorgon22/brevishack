@@ -6,13 +6,48 @@
 
 STATIC_DCL int FDECL(enermod, (int));
 
+static long expUps[] = {
+0,              //1
+5,             //2
+20,             //3
+40,    //4
+100,    //5
+200,    //6
+400,    //7
+400,   //8
+400,   //9
+400,   //10
+800,  //11
+800,  //12
+1600,  //13
+1600,  //14
+3200,  //15
+3200,  //16
+6400,  //17
+6400, //18
+6400, //19
+6400, //20
+6400, //21
+6400, //22
+6400, //23
+6400, //24
+6400, //25
+6400, //26
+6400, //27
+6400, //28
+6400, //29
+6400 //30
+};
+
 long
 newuexp(lev)
 int lev;
 {
-	if (lev < 10) return (10L * (1L << lev));
-	if (lev < 20) return (10000L * (1L << (lev - 10)));
-	return (10000000L * ((long)(lev - 19)));
+        if (lev < 30) return expUps[lev];
+        else return 100000L + lev*10000L;
+        // if (lev < 10) return (10L * (1L << lev));
+        // if (lev < 20) return (10000L * (1L << (lev - 10)));
+        // return (10000000L * ((long)(lev - 19)));
 }
 
 STATIC_OVL int
