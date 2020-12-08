@@ -610,7 +610,7 @@ makelevel()
 	branch *branchp;
 	int room_threshold;
 
-	if(wiz1_level.dlevel == 0) init_dungeons();
+	if(rod_level.dlevel == 0) init_dungeons();
 	oinit();	/* assign level dependent obj probabilities */
 	clear_level_structures();
 

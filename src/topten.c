@@ -1113,7 +1113,7 @@ char **argv;
 
 	/* If the score list isn't after a game, we never went through
 	 * initialization. */
-	if (wiz1_level.dlevel == 0) {
+	if (rod_level.dlevel == 0) {
 		dlb_init();
 		init_dungeons();
 		init_done = TRUE;

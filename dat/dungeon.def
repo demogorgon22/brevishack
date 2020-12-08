@@ -51,6 +51,7 @@ LEVEL:		"valley" "V" @ (1, 0)
 LEVEL:		"sanctum" "none" @ (-1, 0)
 RNDLEVEL:	"dmons1" "B" @ (2, 0) 2
 RNDLEVEL:	"dmons2" "J" @ (3, 0) 2
+BRANCH:		"Yendor Tower" @ (3, 0) portal
 
 #
 #	The Mines of the Gnomes of Zurich.
@@ -71,6 +72,14 @@ RNDLEVEL:	"minetn" "T" @ (1, 0) 7
 DUNGEON:	"The Quest" "Q" (1, 0)
 LEVEL:	"x-goal" "none" @ (-1, 0)
 
+
+#
+#	The Tower Of Yendor
+#
+DUNGEON:	"Yendor Tower" "K" (1, 0)
+DESCRIPTION:	mazelike
+ALIGNMENT:	chaotic
+RNDLEVEL:	"rod" "R" @ (1, 0) 2
 
 
 #

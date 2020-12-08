@@ -439,10 +439,10 @@ fixup_special()
 		otmp->owt = weight(otmp);
 	    }
 	}
-    } else if(Is_wiz1_level(&u.uz)) {
+    } else if(Is_rod_level(&u.uz)) {
 	croom = search_special(MORGUE);
 
-	create_secret_door(croom, W_SOUTH|W_EAST|W_WEST);
+	if(croom) create_secret_door(croom, W_SOUTH|W_EAST|W_WEST);
     } else if(Is_knox(&u.uz)) {
 	/* using an unfilled morgue for rm id */
 	croom = search_special(MORGUE);
