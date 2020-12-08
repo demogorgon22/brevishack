@@ -58,16 +58,14 @@ E struct dgn_topology {		/* special dungeon levels for speed */
     d_level	d_medusa_level;
     d_level	d_stronghold_level;
     d_level	d_valley_level;
-    d_level	d_wiz1_level;
-    d_level	d_wiz2_level;
-    d_level	d_wiz3_level;
+    d_level	d_rod_level;
     d_level	d_demons1_level;
     d_level	d_demons2_level;
-    d_level	d_portal_level;		/* only in goto_level() [do.c] */
     d_level	d_sanctum_level;
     d_level	d_planes_level;
     d_level	d_astral_level;
     xchar	d_tower_dnum;
+    xchar	d_rodney_dnum;
     xchar	d_mines_dnum, d_quest_dnum;
     d_level	d_qstart_level, d_qlocate_level, d_nemesis_level;
     d_level	d_knox_level;
@@ -92,15 +90,13 @@ E struct dgn_topology {		/* special dungeon levels for speed */
 #define medusa_level		(dungeon_topology.d_medusa_level)
 #define stronghold_level	(dungeon_topology.d_stronghold_level)
 #define valley_level		(dungeon_topology.d_valley_level)
-#define wiz1_level		(dungeon_topology.d_wiz1_level)
-#define wiz2_level		(dungeon_topology.d_wiz2_level)
-#define wiz3_level		(dungeon_topology.d_wiz3_level)
+#define rod_level		(dungeon_topology.d_rod_level)
 #define demons1_level		(dungeon_topology.d_demons1_level)
 #define demons2_level		(dungeon_topology.d_demons2_level)
-#define portal_level		(dungeon_topology.d_portal_level)
 #define sanctum_level		(dungeon_topology.d_sanctum_level)
 #define planes_level		(dungeon_topology.d_planes_level)
 #define astral_level		(dungeon_topology.d_astral_level)
+#define rodney_dnum		(dungeon_topology.d_rodney_dnum)
 #define tower_dnum		(dungeon_topology.d_tower_dnum)
 #define mines_dnum		(dungeon_topology.d_mines_dnum)
 #define quest_dnum		(dungeon_topology.d_quest_dnum)

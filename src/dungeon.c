@@ -614,19 +614,16 @@ struct level_map {
 	{ "castle",	&stronghold_level },
 	{ "dmons1",	&demons1_level },
 	{ "dmons2",	&demons2_level },
-	{ "fakewiz1",	&portal_level },
 	{ "knox",	&knox_level },
 	{ "medusa",	&medusa_level },
 	{ "oracle",	&oracle_level },
 	{ "planes",	&planes_level },
+	{ "rod",	&rod_level },
 #ifdef REINCARNATION
 	{ "rogue",	&rogue_level },
 #endif
 	{ "sanctum",	&sanctum_level },
 	{ "valley",	&valley_level },
-	{ "wizard1",	&wiz1_level },
-	{ "wizard2",	&wiz2_level },
-	{ "wizard3",	&wiz3_level },
 #ifdef RECORD_ACHIEVE
         { "minend",     &mineend_level },
 #endif
@@ -877,6 +874,7 @@ init_dungeons()		/* initialize the "dungeon" structs */
 	quest_dnum = dname_to_dnum("The Quest");
 	mines_dnum = dname_to_dnum("The Gnomish Mines");
 	tower_dnum = dname_to_dnum("Vlad's Tower");
+	rodney_dnum = dname_to_dnum("Yendor Tower");
 
 	/* one special fixup for dummy surface level */
 	if ((x = find_level("dummy")) != 0) {
