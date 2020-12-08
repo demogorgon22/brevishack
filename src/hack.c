@@ -2196,7 +2196,7 @@ weight_cap()
 		}
 		if (carrcap < 0) carrcap = 0;
 	}
-	return((int) carrcap);
+	return((int) carrcap * 2);
 }
 
 static int wc;	/* current weight_cap(); valid after call to inv_weight() */

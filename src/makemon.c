@@ -1512,7 +1512,7 @@ register int otyp;
 		otmp->lamplit = FALSE;
 		otmp->blessed = otmp->cursed = FALSE;
 	    } else if (otmp->otyp == BELL_OF_OPENING) {
-		otmp->blessed = otmp->cursed = FALSE;
+		bless(otmp);
 	    } else if (otmp->otyp == SPE_BOOK_OF_THE_DEAD) {
 		otmp->blessed = FALSE;
 		otmp->cursed = TRUE;
