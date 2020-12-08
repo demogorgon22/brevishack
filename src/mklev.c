@@ -777,11 +777,11 @@ skip0:
 #ifdef REINCARNATION
 		if(Is_rogue_level(&u.uz)) goto skip_nonrogue;
 #endif
-		if(!rn2(10)) mkfount(0,croom);
+		if(!rn2(4)) mkfount(0,croom);
 #ifdef SINKS
-		if(!rn2(60)) mksink(croom);
+		if(!rn2(20)) mksink(croom);
 #endif
-		if(!rn2(60)) mkaltar(croom);
+		if(!rn2(20)) mkaltar(croom);
 		x = 80 - (depth(&u.uz) * 2);
 		if (x < 2) x = 2;
 		if(!rn2(x)) mkgrave(croom);
@@ -817,10 +817,10 @@ skip0:
 #ifdef REINCARNATION
 	skip_nonrogue:
 #endif
-		if(!rn2(3)) {
+		if(!rn2(2)) {
 		    (void) mkobj_at(0, somex(croom), somey(croom), TRUE);
 		    tryct = 0;
-		    while(!rn2(5)) {
+		    while(!rn2(2)) {
 			if(++tryct > 100) {
 			    impossible("tryct overflow4");
 			    break;
