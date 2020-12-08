@@ -325,14 +325,14 @@ boolean td;	/* td == TRUE : trap door or hole */
 	d_level dtmp;
 	char msgbuf[BUFSZ];
 	const char *dont_fall = 0;
-	register int newlevel = dunlev(&u.uz);
+	register int newlevel = dunlev(&u.uz) + 1;
 
 	/* KMH -- You can't escape the Sokoban level traps */
 	if(Blind && Levitation && !In_sokoban(&u.uz)) return;
 
-	do {
-	    newlevel++;
-	} while(!rn2(4) && newlevel < dunlevs_in_dungeon(&u.uz));
+	//do {
+	//    newlevel++;
+	//} while(!rn2(4) && newlevel < dunlevs_in_dungeon(&u.uz));
 
 	if(td) {
 	    struct trap *t=t_at(u.ux,u.uy);
