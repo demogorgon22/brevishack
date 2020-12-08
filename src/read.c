@@ -683,6 +683,8 @@ static void
 forget(howmuch)
 int howmuch;
 {
+	//amnesia is against the spirit of a brief nethack
+	return;
 
 	if (Punished) u.bc_felt = 0;	/* forget felt ball&chain */
 
