@@ -1357,6 +1357,10 @@ int	spc;
 	    }
 	first--; /* correct an off-by-one error */
 
+	/*Terrible kludge to prevent purple L in castle*/
+	if(Is_stronghold(&u.uz) && first == PM_MASTER_LICH || first == PM_ARCH_LICH)
+		return (&mons[PM_DEMILICH]);
+
 	return(&mons[first]);
 }
 
