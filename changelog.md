@@ -31,3 +31,5 @@ Brevishack is an attempt at boiling the NetHack gameplay down to an approximatel
 - XP curve changed to custom and much lower requirements
 - Disable amnesia
 - Disable mysterious force
+- Minetown now has luckstone on altar
+- Add a bunch of candles to vlad's
