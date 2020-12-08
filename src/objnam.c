@@ -268,6 +268,7 @@ boolean ignore_oquan;
 	if (!nn && ocl->oc_uses_known && ocl->oc_unique) obj->known = 0;
 	if (!Blind) obj->dknown = TRUE;
 	if (Role_if(PM_PRIEST)) obj->bknown = TRUE;
+	discover_object(obj->otyp, TRUE, FALSE);
 	if (obj_is_pname(obj))
 	    goto nameit;
 	switch (obj->oclass) {

@@ -378,12 +378,10 @@ boolean artif;
 	otmp->oclass = let;
 	otmp->otyp = otyp;
 	otmp->where = OBJ_FREE;
-	otmp->dknown = index(dknowns, let) ? 0 : 1;
-	if ((otmp->otyp >= ELVEN_SHIELD && otmp->otyp <= ORCISH_SHIELD) ||
-			otmp->otyp == SHIELD_OF_REFLECTION)
-		otmp->dknown = 0;
-	if (!objects[otmp->otyp].oc_uses_known)
-		otmp->known = 1;
+	otmp->dknown = 1;
+	otmp->rknown = 1;
+	otmp->bknown = 1;
+	otmp->known = 1;
 #ifdef INVISIBLE_OBJECTS
 	otmp->oinvis = !rn2(1250);
 #endif

@@ -124,8 +124,10 @@ register char oclass;
 	for (i = 0; i < MAXOCLASSES; i++)
 		bases[i] = 0;
 	/* initialize object descriptions */
-	for (i = 0; i < NUM_OBJECTS; i++)
+	for (i = 0; i < NUM_OBJECTS; i++){
 		objects[i].oc_name_idx = objects[i].oc_descr_idx = i;
+		//discover_object(i, TRUE, FALSE);
+	}
 	/* init base; if probs given check that they add up to 1000,
 	   otherwise compute probs */
 	first = 0;
