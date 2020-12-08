@@ -1026,7 +1026,7 @@ pleased(g_align)
 	    break;
 	}
 
-	u.ublesscnt = rnz(350);
+	u.ublesscnt = (int) rnz(350)* 0.8;
 	kick_on_butt = u.uevent.udemigod ? 1 : 0;
 #ifdef ELBERETH
 	if (u.uevent.uhand_of_elbereth) kick_on_butt++;

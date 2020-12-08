@@ -36,3 +36,4 @@ Brevishack is an attempt at boiling the NetHack gameplay down to an approximatel
 - Bell of Opening generates blessed so it can be potentially be used to open the castle drawbridge
 - Carrying capacity is doubled
 - Prevent purple L spawn on castle
+- Decrease prayer timeout by 20% and start prayer timer at 150 instead of 300
