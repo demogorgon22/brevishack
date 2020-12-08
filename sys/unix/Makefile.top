@@ -73,10 +73,10 @@ CHGRP = chgrp
 
 DATHELP = help hh cmdhelp history opthelp wizhelp
 
-SPEC_LEVS = bigrm-?.lev castle.lev dmons1-?.lev dmons2-?.lev fakewiz?.lev \
+SPEC_LEVS = bigrm-?.lev castle.lev dmons1-?.lev dmons2-?.lev \
 	knox.lev medusa-?.lev minend-?.lev minefill.lev \
 	minetn-?.lev oracle.lev sanctum.lev soko?-?.lev \
-	tower?.lev valley.lev wizard?.lev \
+	tower?.lev valley.lev rod-?.lev \
 	astral.lev planes-?.lev
 QUEST_LEVS = ???-goal.lev
 
