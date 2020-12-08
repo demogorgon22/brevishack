@@ -482,8 +482,8 @@ fixup_special()
 		      break;
 		case ORCUS_VARIANT:
 		      //66 18 is on orcus
-	    		inv_pos.x = 33;
-	    		inv_pos.y = 15;
+	    		inv_pos.x = 57;
+	    		inv_pos.y = 10;
 		      break;
 		default:
 		      impossible("Invalid dungeon level variant for vibrating square placement.");
