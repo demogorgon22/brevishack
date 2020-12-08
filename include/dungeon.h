@@ -125,6 +125,7 @@ typedef struct branch {
 #define Is_knox(x)		(on_level(x, &knox_level))
 #ifdef RECORD_ACHIEVE
 #define Is_mineend_level(x)     (on_level(x, &mineend_level))
+#define Is_minetn_level(x)     (on_level(x, &minetn_level))
 #define Is_sokoend_level(x)     (FALSE)
 #endif
 

@@ -624,6 +624,7 @@ struct level_map {
 #endif
 	{ "sanctum",	&sanctum_level },
 	{ "valley",	&valley_level },
+        { "minetn",     &minetn_level },
 #ifdef RECORD_ACHIEVE
         { "minend",     &mineend_level },
 #endif

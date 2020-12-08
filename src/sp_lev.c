@@ -1163,6 +1163,9 @@ create_altar(a, croom)
 	    priestini(&u.uz, croom, x, y, (a->shrine > 1));
 	    levl[x][y].altarmask |= AM_SHRINE;
 	    level.flags.has_temple = TRUE;
+	    //add luckstone to mines
+	    if(Is_minetn_level(&u.uz))
+	    	mksobj_at(LUCKSTONE, x, y, FALSE, FALSE);
 	}
 }
 

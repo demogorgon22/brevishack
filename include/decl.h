@@ -71,6 +71,7 @@ E struct dgn_topology {		/* special dungeon levels for speed */
     d_level	d_knox_level;
 #ifdef RECORD_ACHIEVE
     d_level     d_mineend_level;
+    d_level     d_minetn_level;
 #endif
     int planes_variant;
 #define EARTH_PLANE 1
@@ -106,6 +107,7 @@ E struct dgn_topology {		/* special dungeon levels for speed */
 #define knox_level		(dungeon_topology.d_knox_level)
 #ifdef RECORD_ACHIEVE
 #define mineend_level           (dungeon_topology.d_mineend_level)
+#define minetn_level           (dungeon_topology.d_minetn_level)
 #endif
 
 E NEARDATA stairway dnstair, upstair;		/* stairs up and down */
