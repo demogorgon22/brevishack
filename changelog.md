@@ -33,3 +33,6 @@ Brevishack is an attempt at boiling the NetHack gameplay down to an approximatel
 - Disable mysterious force
 - Minetown now has luckstone on altar
 - Add a bunch of candles to vlad's
+- Bell of Opening generates blessed so it can be potentially be used to open the castle drawbridge
+- Carrying capacity is doubled
+- Prevent purple L spawn on castle
