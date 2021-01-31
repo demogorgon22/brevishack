@@ -759,7 +759,7 @@ skip0:
 		   while a monster was on the stairs. Conclusion:
 		   we have to check for monsters on the stairs anyway. */
 
-		if(u.uhave.amulet || !rn2(3)) {
+		if(u.uhave.amulet || TRUE) {
 		    x = somex(croom); y = somey(croom);
 		    tmonst = makemon((struct permonst *) 0, x,y,NO_MM_FLAGS);
 		    if (tmonst && tmonst->data == &mons[PM_GIANT_SPIDER] &&
