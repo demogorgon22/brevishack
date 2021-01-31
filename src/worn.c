@@ -51,7 +51,8 @@ long mask;
 	register const struct worn *wp;
 	register struct obj *oobj;
 	register int p;
-
+	if(obj && mask&(W_ARMOR)  && obj->spe < 3)
+		obj->spe = 3;
 	if ((mask & (W_ARM|I_SPECIAL)) == (W_ARM|I_SPECIAL)) {
 	    /* restoring saved game; no properties are conferred via skin */
 	    uskin = obj;
