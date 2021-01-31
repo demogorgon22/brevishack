@@ -482,10 +482,6 @@ struct monst *mtmp;
     if(u.uhave.amulet) {
 	real = AMULET_OF_YENDOR;
 	fake = FAKE_AMULET_OF_YENDOR;
-    } else if(u.uhave.questart) {
-	for(otmp = invent; otmp; otmp = otmp->nobj)
-	    if(is_quest_artifact(otmp)) break;
-	if (!otmp) return;	/* should we panic instead? */
     } else if(u.uhave.bell) {
 	real = BELL_OF_OPENING;
 	fake = BELL;

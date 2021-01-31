@@ -37,3 +37,4 @@ Brevishack is an attempt at boiling the NetHack gameplay down to an approximatel
 - Carrying capacity is doubled
 - Prevent purple L spawn on castle
 - Decrease prayer timeout by 20% and start prayer timer at 150 instead of 300
+- Block rodney from stealing QA so it can be reliably used
