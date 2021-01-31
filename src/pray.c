@@ -846,7 +846,9 @@ pleased(g_align)
     /* note: can't get pat_on_head unless all troubles have just been
        fixed or there were no troubles to begin with; hallucination
        won't be in effect so special handling for it is superfluous */
-    if(pat_on_head)
+    if (pat_on_head && u.uevent.qcompleted && !u.uevent.uhand_of_elbereth) {
+	    gcrownu();
+    } else if(pat_on_head)
 	switch(rn2((Luck + 6)>>1)) {
 	case 0:	break;
 	case 1:
@@ -981,10 +983,7 @@ pleased(g_align)
 	case 8:
 	case 9:		/* KMH -- can occur during full moons */
 #ifdef ELBERETH
-	    if (u.ualign.record >= PIOUS && !u.uevent.uhand_of_elbereth) {
-		gcrownu();
-		break;
-	    } /* else FALLTHRU */
+	    /* FALLTHRU */
 #endif	/*ELBERETH*/
 	case 6:	{
 	    struct obj *otmp;
