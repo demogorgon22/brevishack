@@ -39,3 +39,4 @@ Brevishack is an attempt at boiling the NetHack gameplay down to an approximatel
 - Decrease prayer timeout by 20% and start prayer timer at 150 instead of 300
 - Block rodney from stealing QA so it can be reliably used
 - First sac on no prayer timeout will yield a first gift if no other gifts have been given
+- Player has double carrying capacity to discourage as much inventory management time wasted
