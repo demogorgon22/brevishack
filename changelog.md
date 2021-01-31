@@ -41,3 +41,4 @@ Brevishack is an attempt at boiling the NetHack gameplay down to an approximatel
 - First sac on no prayer timeout will yield a first gift if no other gifts have been given
 - Player has double carrying capacity to discourage as much inventory management time wasted
 - First pat on head regardless of alignment after the quest item is recovered is crowning
+- Remove random secret corridors in hallways and random secret doors on rooms
