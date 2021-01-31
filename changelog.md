@@ -42,3 +42,4 @@ Brevishack is an attempt at boiling the NetHack gameplay down to an approximatel
 - Player has double carrying capacity to discourage as much inventory management time wasted
 - First pat on head regardless of alignment after the quest item is recovered is crowning
 - Remove random secret corridors in hallways and random secret doors on rooms
+- Wielding a weapon enchants it to +5 if lower, and wearing armor enchants it to +3 if lower.

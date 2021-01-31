@@ -90,6 +90,10 @@ register struct obj *obj;
 	/* This message isn't printed in the caller because it happens
 	 * *whenever* Sunsword is unwielded, from whatever cause.
 	 */
+	
+        if(obj && (obj->oclass == WEAPON_CLASS || is_weptool(obj)) && obj->spe < 5){
+            obj->spe = 5;
+        }
 	setworn(obj, W_WEP);
 	if (uwep == obj && artifact_light(olduwep) && olduwep->lamplit) {
 	    end_burn(olduwep, FALSE);
@@ -145,6 +149,9 @@ struct obj *wep;
 	} else {
 	    /* Weapon WILL be wielded after this point */
 	    res++;
+	    if((wep->oclass == WEAPON_CLASS || is_weptool(wep)) && wep->spe < 5){
+		wep->spe = 5;
+	    }
 	    if (will_weld(wep)) {
 		const char *tmp = xname(wep), *thestr = "The ";
 		if (strncmp(tmp, thestr, 4) && !strncmp(The(tmp),thestr,4))
