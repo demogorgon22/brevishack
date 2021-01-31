@@ -87,6 +87,7 @@ artitouch()
 	if(!Qstat(touched_artifact)) {
 	    Qstat(touched_artifact) = TRUE;
 	    qt_pager(QT_GOTIT);
+	    u.uevent.qcompleted = 1;
 	    exercise(A_WIS, TRUE);
 	}
 }
