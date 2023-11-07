@@ -331,7 +331,7 @@ doswapweapon()
 	if (u.twoweap && !can_twoweapon())
 		untwoweapon();
 
-	return (result);
+	return 0;
 }
 
 int
