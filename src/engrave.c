@@ -256,6 +256,35 @@ sengr_at(s, x, y)
 }
 #endif /* ELBERETH */
 
+#ifdef ELBERETH_CONDUCT
+/** Return the number of distinct times Elbereth is engraved at
+ * the specified location. Case insensitive.  Counts an engraving
+ * as being present even if it's still being written: if you're
+ * killed while trying to write Elbereth, it still violates the
+ * conduct (mainly because it's easier to implement that way).
+ */
+static
+unsigned
+	nengr_at(x, y)
+	xchar x, y;
+{
+	const char *s = "Elbereth";
+	register struct engr *ep = engr_at(x, y);
+	unsigned count = 0;
+	const char *p;
+
+	if (!ep || HEADSTONE == ep->engr_type)
+		return 0;
+
+	p = ep->engr_txt;
+	while (strstri(p, s)) {
+		count++;
+		p += 8;
+	}
+ 	return count;
+}
+#endif /* ELBERETH_CONDUCT */
+
 #endif /* OVL0 */
 #ifdef OVL2
 
@@ -1010,7 +1039,11 @@ doengrave()
 
 	/* A single `x' is the traditional signature of an illiterate person */
 	if (len != 1 || (!index(ebuf, 'x') && !index(ebuf, 'X')))
-	    u.uconduct.literate++;
+	    if(!u.uconduct.literate++)
+        #ifdef LIVELOG
+                livelog_conduct("became literate by engraving \"%s\"", ebuf)
+        #endif
+		;
 
 	/* Mix up engraving if surface or state of mind is unsound.
 	   Note: this won't add or remove any spaces. */
@@ -1118,14 +1151,26 @@ doengrave()
 
 	(void) strncat(buf, ebuf, (BUFSZ - (int)strlen(buf) - 1));
 
+#ifdef ELBERETH_CONDUCT
+	{
+		unsigned ecount1, ecount0 = nengr_at(u.ux, u.uy);
+		make_engr_at(u.ux, u.uy, buf, (moves - multi), type);
+		ecount1 = nengr_at(u.ux, u.uy);
+		if (ecount1 > ecount0)
+			u.uconduct.elbereths += (ecount1 - ecount0);
+	}
+#else
+
 	make_engr_at(u.ux, u.uy, buf, (moves - multi), type);
 
-	if (post_engr_text[0]) pline(post_engr_text);
+#endif
+
+	if (post_engr_text[0]) pline("%s", post_engr_text);
 
 	if (doblind && !resists_blnd(&youmonst)) {
 	    You("are blinded by the flash!");
 	    make_blinded((long)rnd(50),FALSE);
-	    if (!Blind) Your(vision_clears);
+	    if (!Blind) Your("%s", vision_clears);
 	}
 
 	return(1);

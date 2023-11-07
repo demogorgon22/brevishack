@@ -699,7 +699,11 @@ E void NDECL(really_close);
 E void NDECL(touch_whereis);
 E void NDECL(delete_whereis);
 #endif
+#ifdef LIVELOG
 E void FDECL(livelog_write_string, (char *));
+E void VDECL(livelog_printf, (const char *,...)) PRINTF_F(1,2);
+E void VDECL(livelog_conduct, (const char *,...)) PRINTF_F(1,2);
+#endif
 
 /* ### fountain.c ### */
 
@@ -2111,7 +2115,7 @@ E boolean FDECL(attack_checks, (struct monst *,struct obj *));
 E void FDECL(check_caitiff, (struct monst *));
 E schar FDECL(find_roll_to_hit, (struct monst *));
 E boolean FDECL(attack, (struct monst *));
-E boolean FDECL(hmon, (struct monst *,struct obj *,int));
+E boolean FDECL(hmon, (struct monst *,struct obj *,int,int));
 E int FDECL(damageum, (struct monst *,struct attack *));
 E void FDECL(missum, (struct monst *,struct attack *));
 E int FDECL(passive, (struct monst *,BOOLEAN_P,int,UCHAR_P));

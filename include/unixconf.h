@@ -103,7 +103,7 @@
  * system, define VAR_PLAYGROUND to be where the variable parts are kept.
  */
 #ifndef VAR_PLAYGROUND
-#define VAR_PLAYGROUND "/nh343/var"
+#define VAR_PLAYGROUND "/nh343-hdf/var"
 #endif
 
 /*

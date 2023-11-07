@@ -1,6 +1,8 @@
 #	NetHack Makefile.
 #	SCCS Id: @(#)Makefile.top	3.4	1995/01/05
 
+export VCS_DESCRIPTION = git $(shell git rev-parse --short HEAD)
+
 # newer makes predefine $(MAKE) to 'make' and do smarter processing of
 # recursive make calls if $(MAKE) is used
 # these makes allow $(MAKE) to be overridden by the environment if someone
@@ -14,7 +16,7 @@
 # MAKE = make
 
 # make NetHack
-PREFIX	 = /opt/nethack/nethack.alt.org
+PREFIX	 = /opt/nethack/chroot
 GAME     = nethack
 # GAME     = nethack.prg
 GAMEUID  = games
@@ -35,7 +37,7 @@ DIRPERM  = 0755
 # therefore there should not be anything in GAMEDIR that you want to keep
 # (if there is, you'll have to do the installation by hand or modify the
 # instructions)
-GAMEDIR  = $(PREFIX)/nh343
+GAMEDIR  = $(PREFIX)/nh343-hdf
 VARDIR  = $(GAMEDIR)/var
 #SHELLDIR = $(PREFIX)/games
 

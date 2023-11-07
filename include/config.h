@@ -214,7 +214,7 @@
  * otherwise it will be the current directory.
  */
 # ifndef HACKDIR
-#  define HACKDIR "/nh343"
+#  define HACKDIR "/nh343-hdf"
 # endif
 
 /*
@@ -386,7 +386,7 @@ typedef long glyph_t;
 #define AUTOPICKUP_EXCEPTIONS  /* exceptions to autopickup */
 
 #define DUMP_LOG        /* Dump game end information to a file */
-#define DUMP_FN "/dgldir/userdata/%N/%n/dumplog/%t.nh343.txt"      /* Fixed dumpfile name, if you want
+#define DUMP_FN "/dgldir/userdata/%N/%n/nh343/dumplog/%t.nh343.txt"      /* Fixed dumpfile name, if you want
                                    * to prevent definition by users */
 #define DUMPMSGS 20     /* Number of latest messages in the dump file  */
 
@@ -424,7 +424,11 @@ typedef long glyph_t;
 */
 #define SERVER_ADMIN_MSG "admin_msg"
 
+#define LIVELOG         /* live logging of player actions */
 #define LIVELOGFILE "livelog"
+
+/* no earlygame livelog spam for broken  conducts */
+#define LL_CONDUCT_THRESHOLD 3000 /* min turncount */
 
 #define XLOGFILE "xlogfile"  /* even larger logfile */
 /* #define REALTIME_ON_BOTL */  /* Show elapsed time on bottom line.  Note:
@@ -453,6 +457,10 @@ typedef long glyph_t;
 #define USER_DUNGEONCOLOR
 
 #define BONES_POOL /* Multiple bones files per level */
+
+#define AUTO_OPEN	/* open doors by walking into them - Stefano Busti */
+
+#define ELBERETH_CONDUCT /* Track the number of times the player engraves Elbereth. - Ray Kulhanek */
 
 /* End of Section 5 */
 
